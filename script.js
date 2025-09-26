@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'video1',
             title: 'FCyAT',
             description: 'Conoce las opciones que <a href="https://fcat.uat.edu.mx"> Facultad de Comercio y Administración Tampico</a> ofrece para ti. 		Conoce los  <a href="https://fcat.uat.edu.mx/sites/programestudios/gconocimiento.php">programas de estudio.</a>',
-            src: 'videos/COMERCIOTAMPICO1.mp4', // Cambia esta ruta a tu video
+            src: '<a href="https://youtu.be/OCSauN-Y1KM>', // Cambia esta ruta a tu video
             poster: 'posters/fcyat1.png' // Cambia esta ruta a tu miniatura
         },
         {

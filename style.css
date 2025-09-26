@@ -2,41 +2,44 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background-color: #141414;
+    /* Color de cuerpo modificado: Pantone Cool Gray 11 C al 80% */
+    background-color: #8a9092; 
     color: #fff;
-    overflow-x: hidden; /* Evitar scroll horizontal no deseado */
+    overflow-x: hidden;
 }
 
+/* ===== SECCIÓN MODIFICADA ===== */
 /* Header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #000;
+    padding: 10px 20px;
+    /* Color de encabezado modificado: Pantone Cool Gray 11 C al 100% */
+    background-color: #5f6769;
     position: sticky;
     top: 0;
     z-index: 1000;
-    flex-wrap: wrap; /* Permite que los elementos del header se envuelvan */
+    flex-wrap: wrap; 
 }
 
-.logo {
-    font-size: 1em;
-    font-weight: bold;
-    color: #ffff;
-    margin-bottom: 10px;
-}
-/* Nuevas reglas para los logos */
+/* Contenedores de logos */
 .logos-container {
-    display: flex; /* Muestra los logos en una fila */
-    gap: 80px; /* Espacio entre los logos */
-    align-items: center; /* Alinea verticalmente los logos */
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.logos-container-right {
+    display: flex;
+    align-items: center;
 }
 
 .logo-image {
-    height: 80px; /* Tamaño de la altura del logo */
-    width: auto; /* Mantiene la proporción de la imagen */
+    height: 60px; /* Ajusta el tamaño según necesites */
+    width: auto;
 }
+/* ===== FIN DE LA SECCIÓN MODIFICADA ===== */
 
 nav ul {
     list-style: none;
@@ -55,6 +58,7 @@ nav ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 1.1em;
+    font-weight: bold;
 }
 
 .search-bar {
@@ -66,8 +70,8 @@ nav ul li a {
     padding: 8px;
     border-radius: 5px;
     border: 1px solid #333;
-    background-color: #333;
-    color: #fff;
+    background-color: #f1f1f1;
+    color: #000;
 }
 
 .search-bar button {
@@ -84,7 +88,7 @@ nav ul li a {
 #video-container {
     padding: 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Columnas responsivas */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
 }
 
@@ -103,8 +107,8 @@ nav ul li a {
 
 .video-item img {
     width: 100%;
-    height: 150px; /* Altura fija para las miniaturas */
-    object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+    height: 150px;
+    object-fit: cover;
 }
 
 .video-info {
@@ -125,72 +129,77 @@ nav ul li a {
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #000;
+    /* Color de footer igual al header */
+    background-color: #5f6769;
     margin-top: 30px;
     font-size: 0.9em;
-    color: #888;
+    color: #fff;
 }
 
+/* ===== SECCIÓN MODIFICADA ===== */
 /* Modal para reproducir video */
 .modal {
-    display: none; /* Oculto por defecto */
-    position: fixed; /* Permanece en su lugar */
-    z-index: 1001; /* Z-index alto para estar encima de todo */
+    display: none; 
+    position: fixed; 
+    z-index: 1001;
     left: 0;
     top: 0;
-    width: 100%; /* Ancho completo */
-    height: 100%; /* Altura completa */
-    overflow: auto; /* Habilitar scroll si es necesario */
-    background-color: rgba(0,0,0,0.8); /* Fondo oscuro semitransparente */
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.85); 
     justify-content: center;
     align-items: center;
 }
 
 .modal-content {
-    background-color: #111;
+    background-color: #181818;
     margin: auto;
     padding: 20px;
-    border: 2px solid #888;
-    width: 80%; /* Ancho del contenido del modal */
+    border: 1px solid #888;
+    width: 80%;
     max-width: 900px;
     position: relative;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
+/* Botón de cerrar (X) solucionado */
 .close-button {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
+    color: #fff; /* Color cambiado para mayor visibilidad */
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
     font-weight: bold;
     cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 20px;
+    z-index: 1002; /* Se asegura que esté por encima de otros elementos del modal */
+    line-height: 1;
 }
 
 .close-button:hover,
 .close-button:focus {
-    color: #fff;
+    color: #e86f30;
     text-decoration: none;
 }
 
+/* Contenedor del video ajustado para llenar el espacio */
 .video-player {
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%; /* Relación de aspecto 16:9 para el video */
     position: relative;
+    padding-bottom: 56.25%; /* Proporción 16:9 */
+    height: 0;
+    overflow: hidden;
     margin-bottom: 15px;
 }
 
-.video-player video {
+.video-player iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Asegura que el video se ajuste */
 }
+/* ===== FIN DE LA SECCIÓN MODIFICADA ===== */
 
 .modal-content h2 {
     margin-top: 0;
@@ -200,27 +209,23 @@ footer {
 
 .modal-content p {
     font-size: 1em;
-    line-height: 2.6;
+    line-height: 1.6;
     color: #ccc;
 }
-/* para los hipervínculonculos */
+/* para los hipervínculos */
 a {
-    /* Color del enlace en su estado normal */
     color: #e86f30; 
 }
 
 a:visited {
-    /* Color del enlace después de haber sido visitado */
     color: #d15c25; 
 }
 
 a:hover {
-    /* Color del enlace al pasar el cursor por encima */
     color: #ff914d;
 }
 
 a:active {
-    /* Color del enlace al hacer clic */
     color: #cc4d1c;
 }
 
@@ -228,96 +233,14 @@ a:active {
 @media (max-width: 768px) {
     header {
         flex-direction: column;
-        align-items: flex-start;
-        padding-bottom: 10px;
+        align-items: center;
     }
-
-    .logo {
-        margin-bottom: 15px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    nav ul li {
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-
+    
     .search-bar {
-        width: 100%;
         margin-top: 10px;
-        justify-content: center;
-    }
-
-    .search-bar input {
-        flex-grow: 1;
     }
 
     #video-container {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 15px;
-        padding: 15px;
-    }
-
-    .video-item img {
-        height: 100px;
-    }
-
-    .modal-content {
-        width: 95%;
-    }
-
-    .close-button {
-        font-size: 24px;
-        top: 5px;
-        right: 10px;
-    }
-
-    .modal-content h2 {
-        font-size: 1.5em;
-    }
-
-    .modal-content p {
-        font-size: 0.9em;
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        padding: 15px;
-    }
-
-    .logo {
-        font-size: 1.8em;
-    }
-
-    nav ul li a {
-        font-size: 1em;
-    }
-
-    .search-bar input,
-    .search-bar button {
-        padding: 6px;
-    }
-
-    #video-container {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: 10px;
-        padding: 10px;
-    }
-
-    .video-item img {
-        height: 80px;
-    }
-
-    .video-info h3 {
-        font-size: 1em;
-    }
-
-    .video-info p {
-        font-size: 0.8em;
     }
 }

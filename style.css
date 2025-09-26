@@ -2,74 +2,81 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    /* Color de cuerpo modificado: Pantone Cool Gray 11 C al 80% */
     background-color: #8a9092; 
     color: #fff;
     overflow-x: hidden;
 }
 
-/* ===== SECCIÓN MODIFICADA ===== */
-/* Header */
+/* ===== SECCIÓN MODIFICADA - HEADER TOTALMENTE FLUIDO ===== */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    /* Color de encabezado modificado: Pantone Cool Gray 11 C al 100% */
+    padding: 10px;
     background-color: #5f6769;
     position: sticky;
     top: 0;
     z-index: 1000;
-    flex-wrap: wrap; 
+    /* El espaciado ahora también es fluido */
+    gap: clamp(0.5rem, 1.5vw, 1rem); /* 1rem = ~16px */
 }
 
-/* Contenedores de logos */
+.logos-container, .logos-container-right {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0; /* Mantenemos esto para que los contenedores no se compriman */
+}
+
 .logos-container {
-    display: flex;
-    gap: 20px;
-    align-items: center;
+    gap: clamp(0.5rem, 1.5vw, 1.25rem); /* 20px = 1.25rem */
 }
 
-.logos-container-right {
-    display: flex;
-    align-items: center;
-}
-
+/* ESCALADO FLUIDO DE LOGOS usando clamp(MIN, PREFERIDO, MAX) */
 .logo-image {
-    height: 55px; /* Ajusta el tamaño según necesites */
-    width: 100%;
+    /* Este es el logo "sacrificable". Puede hacerse muy pequeño. */
+    height: clamp(28px, 4vw, 55px);
+    width: auto;
+    object-fit: contain;
 }
 
 .logo-image2 {
-    height: 64px; /* Ajusta el tamaño según necesites */
-    width: 100%;
-    margin-right: 5px;
+    /* Este logo está protegido con un mínimo más grande para que nunca se corte. */
+    height: clamp(40px, 5vw, 64px);
+    width: auto;
+    object-fit: contain;
 }
-/* ===== FIN DE LA SECCIÓN MODIFICADA ===== */
+
+nav {
+    flex-shrink: 1; /* Permite que la navegación se encoja un poco si es necesario */
+}
 
 nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    flex-wrap: wrap;
 }
 
 nav ul li {
-    margin-right: 20px;
-    margin-bottom: 10px;
+    margin-right: clamp(0.5rem, 1.2vw, 1.25rem); /* Margen fluido */
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 1.1em;
     font-weight: bold;
+    white-space: nowrap;
+    /* Tamaño de fuente fluido */
+    font-size: clamp(0.8rem, 1.6vw, 1.1em);
 }
 
 .search-bar {
     display: flex;
-    margin-bottom: 10px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    /* La barra de búsqueda se acorta y alarga de forma fluida */
+    min-width: clamp(80px, 18vw, 150px);
+    max-width: 350px;
 }
 
 .search-bar input {
@@ -78,6 +85,7 @@ nav ul li a {
     border: 1px solid #333;
     background-color: #f1f1f1;
     color: #000;
+    width: 100%;
 }
 
 .search-bar button {
@@ -89,6 +97,7 @@ nav ul li a {
     cursor: pointer;
     margin-left: 5px;
 }
+/* ===== FIN DE LA SECCIÓN MODIFICADA ===== */
 
 /* Main Content */
 #video-container {
@@ -135,122 +144,29 @@ nav ul li a {
 footer {
     text-align: center;
     padding: 20px;
-    /* Color de footer igual al header */
     background-color: #5f6769;
     margin-top: 30px;
     font-size: 0.9em;
     color: #fff;
 }
 
-/* ===== SECCIÓN MODIFICADA ===== */
-/* Modal para reproducir video */
-.modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1001;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.85); 
-    justify-content: center;
-    align-items: center;
-}
+/* Modal (sin cambios) */
+.modal { display: none; position: fixed; z-index: 1001; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.85); justify-content: center; align-items: center; }
+.modal-content { background-color: #181818; margin: auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 900px; position: relative; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+.close-button { color: #fff; position: absolute; top: 15px; right: 25px; font-size: 35px; font-weight: bold; cursor: pointer; z-index: 1002; line-height: 1; }
+.close-button:hover, .close-button:focus { color: #e86f30; text-decoration: none; }
+.video-player { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 15px; }
+.video-player iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.modal-content h2 { margin-top: 0; font-size: 1.8em; color: #e86f30; }
+.modal-content p { font-size: 1em; line-height: 1.6; color: #ccc; }
+a { color: #dddddd; }
+a:visited { color: #dddddd; }
+a:hover { color: #ff914d; }
+a:active { color: #cc4d1c; }
+.main-nav li a { display: inline-block; padding-top: 0px; }
 
-.modal-content {
-    background-color: #181818;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 900px;
-    position: relative;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-}
-
-/* Botón de cerrar (X) solucionado */
-.close-button {
-    color: #fff; /* Color cambiado para mayor visibilidad */
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    font-size: 35px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 1002; /* Se asegura que esté por encima de otros elementos del modal */
-    line-height: 1;
-}
-
-.close-button:hover,
-.close-button:focus {
-    color: #e86f30;
-    text-decoration: none;
-}
-
-/* Contenedor del video ajustado para llenar el espacio */
-.video-player {
-    position: relative;
-    padding-bottom: 56.25%; /* Proporción 16:9 */
-    height: 0;
-    overflow: hidden;
-    margin-bottom: 15px;
-}
-
-.video-player iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-/* ===== FIN DE LA SECCIÓN MODIFICADA ===== */
-
-.modal-content h2 {
-    margin-top: 0;
-    font-size: 1.8em;
-    color: #e86f30;
-}
-
-.modal-content p {
-    font-size: 1em;
-    line-height: 1.6;
-    color: #ccc;
-}
-/* para los hipervínculos */
-a {
-    color: #dddddd; 
-}
-
-a:visited {
-    color: #dddddd; 
-}
-
-a:hover {
-    color: #ff914d;
-}
-
-a:active {
-    color: #cc4d1c;
-}
-
-.main-nav li a {
-    display: inline-block;  /* Necesario para aplicar padding/margin vertical */
-    padding-top: 20px;       /* O usa margin-top si prefieres */
-}
-
-/* Media Queries para Responsividad */
+/* Media Query solo para el contenido, no para el header */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .search-bar {
-        margin-top: 10px;
-    }
-
     #video-container {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }

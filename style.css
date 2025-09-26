@@ -36,8 +36,14 @@ header {
 }
 
 .logo-image {
-    height: 66px; /* Ajusta el tamaño según necesites */
-    width: 90%;
+    height: 55px; /* Ajusta el tamaño según necesites */
+    width: 100%;
+}
+
+.logo-image2 {
+    height: 64px; /* Ajusta el tamaño según necesites */
+    width: 100%;
+    margin-right: 5px;
 }
 /* ===== FIN DE LA SECCIÓN MODIFICADA ===== */
 
@@ -231,7 +237,7 @@ a:active {
 
 .main-nav li a {
     display: inline-block;  /* Necesario para aplicar padding/margin vertical */
-    padding-top: 6px;       /* O usa margin-top si prefieres */
+    padding-top: 20px;       /* O usa margin-top si prefieres */
 }
 
 /* Media Queries para Responsividad */

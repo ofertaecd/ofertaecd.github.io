@@ -36,8 +36,8 @@ header {
 }
 
 .logo-image {
-    height: 60px; /* Ajusta el tamaño según necesites */
-    width: auto;
+    height: 66px; /* Ajusta el tamaño según necesites */
+    width: 90%;
 }
 /* ===== FIN DE LA SECCIÓN MODIFICADA ===== */
 
@@ -214,11 +214,11 @@ footer {
 }
 /* para los hipervínculos */
 a {
-    color: #e86f30; 
+    color: #dddddd; 
 }
 
 a:visited {
-    color: #d15c25; 
+    color: #dddddd; 
 }
 
 a:hover {
@@ -227,6 +227,11 @@ a:hover {
 
 a:active {
     color: #cc4d1c;
+}
+
+.main-nav li a {
+    display: inline-block;  /* Necesario para aplicar padding/margin vertical */
+    padding-top: 6px;       /* O usa margin-top si prefieres */
 }
 
 /* Media Queries para Responsividad */

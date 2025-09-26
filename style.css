@@ -7,7 +7,7 @@ body {
     overflow-x: hidden;
 }
 
-/* ===== SECCIÓN MODIFICADA - HEADER TOTALMENTE FLUIDO ===== */
+/* Header Fluido para Escritorio y Tablet */
 header {
     display: flex;
     justify-content: space-between;
@@ -17,37 +17,33 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    /* El espaciado ahora también es fluido */
-    gap: clamp(0.5rem, 1.5vw, 1rem); /* 1rem = ~16px */
+    gap: clamp(0.5rem, 1.5vw, 1rem);
 }
 
 .logos-container, .logos-container-right {
     display: flex;
     align-items: center;
-    flex-shrink: 0; /* Mantenemos esto para que los contenedores no se compriman */
+    flex-shrink: 0;
 }
 
 .logos-container {
-    gap: clamp(0.5rem, 1.5vw, 1.25rem); /* 20px = 1.25rem */
+    gap: clamp(0.5rem, 1.5vw, 1.25rem);
 }
 
-/* ESCALADO FLUIDO DE LOGOS usando clamp(MIN, PREFERIDO, MAX) */
 .logo-image {
-    /* Este es el logo "sacrificable". Puede hacerse muy pequeño. */
-    height: clamp(28px, 4vw, 55px);
+    height: clamp(30px, 4vw, 55px);
     width: auto;
     object-fit: contain;
 }
 
 .logo-image2 {
-    /* Este logo está protegido con un mínimo más grande para que nunca se corte. */
     height: clamp(40px, 5vw, 64px);
     width: auto;
     object-fit: contain;
 }
 
 nav {
-    flex-shrink: 1; /* Permite que la navegación se encoja un poco si es necesario */
+    flex-shrink: 1;
 }
 
 nav ul {
@@ -58,7 +54,7 @@ nav ul {
 }
 
 nav ul li {
-    margin-right: clamp(0.5rem, 1.2vw, 1.25rem); /* Margen fluido */
+    margin-right: clamp(0.5rem, 1.2vw, 1.25rem);
 }
 
 nav ul li a {
@@ -66,7 +62,6 @@ nav ul li a {
     text-decoration: none;
     font-weight: bold;
     white-space: nowrap;
-    /* Tamaño de fuente fluido */
     font-size: clamp(0.8rem, 1.6vw, 1.1em);
 }
 
@@ -74,7 +69,6 @@ nav ul li a {
     display: flex;
     flex-grow: 1;
     flex-shrink: 1;
-    /* La barra de búsqueda se acorta y alarga de forma fluida */
     min-width: clamp(80px, 18vw, 150px);
     max-width: 350px;
 }
@@ -97,7 +91,6 @@ nav ul li a {
     cursor: pointer;
     margin-left: 5px;
 }
-/* ===== FIN DE LA SECCIÓN MODIFICADA ===== */
 
 /* Main Content */
 #video-container {
@@ -126,19 +119,9 @@ nav ul li a {
     object-fit: cover;
 }
 
-.video-info {
-    padding: 15px;
-}
-
-.video-info h3 {
-    margin: 0 0 10px 0;
-    font-size: 1.2em;
-}
-
-.video-info p {
-    font-size: 0.9em;
-    color: #aaa;
-}
+.video-info { padding: 15px; }
+.video-info h3 { margin: 0 0 10px 0; font-size: 1.2em; }
+.video-info p { font-size: 0.9em; color: #aaa; }
 
 /* Footer */
 footer {
@@ -159,11 +142,27 @@ footer {
 .video-player iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 .modal-content h2 { margin-top: 0; font-size: 1.8em; color: #e86f30; }
 .modal-content p { font-size: 1em; line-height: 1.6; color: #ccc; }
-a { color: #dddddd; }
-a:visited { color: #dddddd; }
-a:hover { color: #ff914d; }
-a:active { color: #cc4d1c; }
+a { color: #dddddd; } a:visited { color: #dddddd; } a:hover { color: #ff914d; } a:active { color: #cc4d1c; }
 .main-nav li a { display: inline-block; padding-top: 0px; }
+
+/* ===== SECCIÓN MODIFICADA - REGLAS PARA MÓVILES ===== */
+@media (max-width: 650px) {
+    header {
+        /* Permite que los elementos se envuelvan a la siguiente línea */
+        flex-wrap: wrap;
+        justify-content: center; /* Centra los elementos para un look limpio */
+    }
+
+    .search-bar {
+        /* Fuerza a la barra de búsqueda a ocupar el 100% del ancho */
+        flex-basis: 100%;
+        /* Le da una orden para que siempre vaya al final */
+        order: 99;
+        /* Reseteamos min/max-width para que se ajuste correctamente */
+        min-width: unset;
+        max-width: unset;
+    }
+}
 
 /* Media Query solo para el contenido, no para el header */
 @media (max-width: 768px) {

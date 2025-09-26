@@ -153,7 +153,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <div class="video-player">
-                <iframe width="100%" height="315" src="" frameborder="0" allowfullscreen></iframe>
+                <!-- El tamaño del iframe se ajusta con CSS para llenar el contenedor -->
+                <iframe width="100%" height="100%" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
             <h2 id="modal-video-title"></h2>
             <p id="modal-video-description"></p>
@@ -174,7 +175,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const selectedVideo = videos.find(v => v.videoId === videoId);
 
             if (selectedVideo && selectedVideo.videoId) {
-                const embedUrl = `https://www.youtube-nocookie.com/embed/${selectedVideo.videoId}`;
+                // ===== LÍNEA MODIFICADA =====
+                // Se agrega ?controls=0 para ocultar los controles de YouTube
+                const embedUrl = `https://www.youtube-nocookie.com/embed/${selectedVideo.videoId}?controls=0&autoplay=1&rel=0`;
+                // ===== FIN DE LA LÍNEA MODIFICADA =====
                 modalIframe.src = embedUrl;
                 modalVideoTitle.textContent = selectedVideo.title;
                 modalVideoDescription.innerHTML = selectedVideo.description;
@@ -184,15 +188,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Cerrar modal
-    closeButton.addEventListener('click', () => {
+    function closeModal() {
         modal.style.display = 'none';
-        modalIframe.src = '';
-    });
+        modalIframe.src = ''; // Detiene la reproducción del video
+    }
+
+    closeButton.addEventListener('click', closeModal);
 
     window.addEventListener('click', (event) => {
         if (event.target === modal) {
-            modal.style.display = 'none';
-            modalIframe.src = '';
+            closeModal();
         }
     });
 

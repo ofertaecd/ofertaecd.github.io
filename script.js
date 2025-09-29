@@ -14,70 +14,70 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'video2',
             title: 'FADYCS',
             description: 'Un grupo de jóvenes te da la bienvenida a la <a href="https://fadycs.uat.edu.mx">Facultad de Derecho y Ciencias Sociales</a> y te muestran las bondades de esta facultad. Información para <a href="https://fadycs.uat.edu.mx/admisiones/admision?#aspirantes">Aspirantes.</a>',
-            videoId: '',
+            videoId: 'EaymoT0wmMU',
             poster: 'posters/fadycs.png'
         },
         {
             id: 'video3',
             title: 'FDYCSV',
             description: 'Crear ciudadanos comprometidos con la responsabilidad social, además los prepara con vocación de justicia.',
-            videoId: '',
+            videoId: 'P9W_7bnUCaY',
             poster: 'posters/FDYCSV.png'
         },
         {
             id: 'video4',
             title: 'FET',
             description: 'Visita la Facultad de Enfermería Tampico, un lugar donde se unen solo los mejores.',
-            videoId: '',
+            videoId: 'ZsVM3ttj1dA',
             poster: 'posters/fet.png'
         },
         {
             id: 'video5',
             title: 'UAMMRA',
             description: 'Con la misión de formar profesionistas con habilidades, actitudes y destrezas en las áreas de la salud, química, ingeniería, nutrición y criminología, la UAM Reynosa Aztlán transforma tu futuro.',
-            videoId: '',
+            videoId: 'bYQ6N2lLFTo',
             poster: 'posters/uamra.png'
         },
         {
             id: 'video6',
             title: 'FADU',
             description: 'La FADU te prepara para ser un profesional responsable y global, con conocimientos actualizados y alta capacidad innovadora y creativa.',
-            videoId: '',
+            videoId: '9qZWYkmlILk',
             poster: 'posters/fadu.png'
         },
         {
             id: 'video7',
             title: 'FIC',
             description: 'La Facultad de Ingeniería y Ciencias forma a los líderes del mañana en Ingeniero Agrónomo, Ciencias Ambientales e Ingeniero en Telemática.',
-            videoId: '',
+            videoId: 'tG5VdEnPsEk',
             poster: 'posters/fic.png'
         },
         {
             id: 'video8',
             title: 'FIT',
             description: 'La Facultad de Ingeniería Tampico es el lugar donde se construyen nuestros sueños, formando líderes con una clara visión del futuro.',
-            videoId: '',
+            videoId: 'fd9qwS-xOVE',
             poster: 'posters/fit.png'
         },
         {
             id: 'video9',
             title: 'FMM',
             description: 'La Facultad de Medicina Matamoros, con más de ochenta programas académicos innovadores y cobertura en todo el estado, es el ambiente ideal para crecer y alcanzar tus metas.',
-            videoId: '',
+            videoId: 'vQgKKlXzk-0',
             poster: 'posters/fmm.png'
         },
         {
             id: 'video10',
             title: 'FMT',
             description: 'La Facultad de Medicina de Tampico "Dr. Alberto Romo Caballero", con más de 74 años de prestigio y tradición, está lista para recibirte en esta gran comunidad comprometida con la excelencia.',
-            videoId: '',
+            videoId: 'wkao2WGGNlw',
             poster: 'posters/fmt.png'
         },
         {
             id: 'video11',
             title: 'UAMRR',
             description: 'La UAM Reynosa Rodhe, donde la cultura, el arte y el emprendimiento son parte esencial de la formación del universitario, preparándolos para los desafíos del mundo real.',
-            videoId: '',
+            videoId: 'y58Yl3yqqEA',
             poster: 'posters/uamrr.png'
         },
         {
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'video13',
             title: 'UAMM',
             description: 'UAM Mante, el ambiente perfecto para que alcances tu máximo potencial, con docentes destacados en su preparación profesional con el objetivo de que conviertas tu pasión en tu guía.',
-            videoId: '',
+            videoId: 'c0drJ9MxuxQ',
             poster: 'posters/uamm.png'
         },
         {
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'video16',
             title: 'UAMRB',
             description: 'En la Unidad Académica Multidisciplinaria Río Bravo se cultiva la excelencia, y es donde cada estudiante encuentra su camino hacia un futuro brillante.',
-            videoId: '',
+            videoId: 'EfjGy5vlu2w',
             poster: 'posters/uamrb.png'
         },
         {

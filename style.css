@@ -31,13 +31,13 @@ header {
 }
 
 .logo-image {
-    height: clamp(30px, 4vw, 55px);
+    height: clamp(20px, 2vw, 45px);
     width: auto;
     object-fit: contain;
 }
 
 .logo-image2 {
-    height: clamp(40px, 5vw, 64px);
+    height: clamp(30px, 3vw, 54px);
     width: auto;
     object-fit: contain;
 }
